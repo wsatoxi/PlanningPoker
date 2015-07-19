@@ -1,7 +1,16 @@
 <!DOCTYPE html>
 <html>
 <head>
+<script src='./bin/sample.js' type='text/javascript'>
+</script>
+<script>
+function say(){
+  var sample = new pokerapp.Sample();
+  alert(sample.hello(document.getElementById('name').value));
+}
+</script>
 </head>
 <body>
+  <input id='name' type='text'></input><button onclick='say()'>hello</button>
 </body>
 </html>

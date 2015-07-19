@@ -1,0 +1,10 @@
+machine:
+  node:
+    version: v0.12.7
+test:
+  pre:
+    - npm install -g grunt-cli
+    - npm install -g typescript@1.4.1
+  post:
+    - mkdir -p $CIRCLE_TEST_REPORTS/junit/
+    - find . -type f -regex ".*/output/junit-reports/TEST.*\.xml" -exec cp {} $CIRCLE_TEST_REPORTS/junit/ \;
