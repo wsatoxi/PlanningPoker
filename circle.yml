@@ -14,3 +14,12 @@ test:
     - grunt coveralls
     - mv output/cobertura-reports/cobertura-coverage.xml $CIRCLE_ARTIFACTS
     - mv output/coverage-html-reports $CIRCLE_ARTIFACTS
+deployment:
+  production:
+    branch: develop
+    commands:
+      - grunt clean:all
+      - grunt ts:base
+      - git branch -rd origin/gh-pages
+      - git checkout -b gh-pages
+      - git push origin gh-pages
