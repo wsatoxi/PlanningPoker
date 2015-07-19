@@ -20,6 +20,8 @@ deployment:
     commands:
       - grunt clean:all
       - grunt ts:base
+      - git config --global user.name "Satoshi Watanabe (CircleCI)"
+      - git config --global user.email "unksato@gmail.com"
       - git branch -rd origin/gh-pages
       - git checkout -b gh-pages
       - git add .
