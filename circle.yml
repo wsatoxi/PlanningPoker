@@ -1,9 +1,6 @@
 machine:
   node:
     version: v0.12.7
-  environment:
-    COVERALLS_SERVICE_NAME: circle-ci
-    COVERALLS_REPO_TOKEN: FfVHaNrYClfyi8SObetsIBWcZIHIbEJOq
 test:
   pre:
     - npm install -g grunt-cli
@@ -20,8 +17,8 @@ deployment:
     commands:
       - grunt clean:all
       - grunt ts:base
-      - git config --global user.name "Satoshi Watanabe (CircleCI)"
-      - git config --global user.email "unksato@gmail.com"
+      - git config --global user.name "${GIT_USER_NAME}"
+      - git config --global user.email "${GIT_USER_EMAIL}"
       - git branch -rd origin/gh-pages
       - git checkout -b gh-pages
       - git add .
