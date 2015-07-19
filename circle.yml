@@ -8,3 +8,5 @@ test:
   post:
     - mkdir -p $CIRCLE_TEST_REPORTS/junit/
     - find . -type f -regex ".*/output/junit-reports/TEST.*\.xml" -exec cp {} $CIRCLE_TEST_REPORTS/junit/ \;
+    - mv output/cobertura-reports/cobertura-coverage.xml $CIRCLE_ARTIFACTS
+    - mv output/coverage-html-reports $CIRCLE_ARTIFACTS
