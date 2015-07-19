@@ -1,6 +1,9 @@
 machine:
   node:
     version: v0.12.7
+  environment:
+    COVERALLS_SERVICE_NAME: circle-ci
+    COVERALLS_REPO_TOKEN: FfVHaNrYClfyi8SObetsIBWcZIHIbEJOq
 test:
   pre:
     - npm install -g grunt-cli
@@ -10,3 +13,4 @@ test:
     - find . -type f -regex ".*/output/junit-reports/TEST.*\.xml" -exec cp {} $CIRCLE_TEST_REPORTS/junit/ \;
     - mv output/cobertura-reports/cobertura-coverage.xml $CIRCLE_ARTIFACTS
     - mv output/coverage-html-reports $CIRCLE_ARTIFACTS
+    - grunt coveralls

@@ -2,6 +2,7 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-ts');
   grunt.loadNpmTasks('grunt-contrib-clean');
   grunt.loadNpmTasks('grunt-typescript-qunit');
+  grunt.loadNpmTasks('grunt-coveralls');
 
   grunt.initConfig({
     ts : {
@@ -25,6 +26,15 @@ module.exports = function(grunt) {
       srcDir : './src/',
       testDir : './test/',
       buildReportDir : './output/'
+    },
+
+    coveralls:{
+      options: {
+        force: false
+      },
+      base: {
+        src: 'output/lcov-reports/lcov.info'
+      }
     }
   });
 
