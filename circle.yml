@@ -19,7 +19,7 @@ deployment:
       - grunt ts:base
       - git config --global user.name "${GIT_USER_NAME}"
       - git config --global user.email "${GIT_USER_EMAIL}"
-      - git branch -d gh-pages
+      - git branch -rd origin/gh-pages
       - git push origin :gh-pages
       - git checkout -b gh-pages
       - git add .
