@@ -13,7 +13,7 @@ test:
     - mv output/coverage-html-reports $CIRCLE_ARTIFACTS
 deployment:
   production:
-    branch: develop
+    branch: master
     commands:
       - grunt clean:all
       - grunt ts:base
