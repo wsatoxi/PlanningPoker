@@ -15,6 +15,6 @@
         "!./node_modules/**/*.ts"
     ],
     "files": [
-        "./sample-test.ts"
+        "./card-test.ts"
     ]
 }

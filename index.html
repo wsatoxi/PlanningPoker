@@ -1,16 +1,22 @@
 <!DOCTYPE html>
 <html>
 <head>
-<script src='./bin/sample.js' type='text/javascript'>
-</script>
-<script>
-function say(){
-  var sample = new pokerapp.Sample();
-  alert(sample.hello(document.getElementById('name').value));
-}
-</script>
+  <title>PlanningPoker</title>
+  <link rel="stylesheet" href="./default.css">
+  <link rel="shortcut icon" href="favicon.ico" type="image/vnd.microsoft.icon">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/3.1.0/css/swiper.min.css">
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/3.1.0/js/swiper.min.js"></script>
+  <script src='./bin/card.js' type='text/javascript'></script>
+
+  <script>
+    window.onload = function(){
+      var card = new pokerapp.Card();
+      card.create('swiper-container');
+    }
+  </script>
 </head>
 <body>
-  <input id='name' type='text'></input><button onclick='say()'>hello</button>
+  <div id="swiper-container"/>
 </body>
 </html>

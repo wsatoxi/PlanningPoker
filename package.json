@@ -21,6 +21,7 @@
     "grunt-contrib-clean": "^0.6.0",
     "grunt-coveralls": "^1.0.0",
     "grunt-ts": "^4.1.2",
-    "grunt-typescript-qunit": "git+ssh://git@github.com/unksato/grunt-typescript-qunit.git#master"
+    "grunt-typescript-qunit": "git+ssh://git@github.com/unksato/grunt-typescript-qunit.git#master",
+    "swiper": "^3.1.0"
   }
 }

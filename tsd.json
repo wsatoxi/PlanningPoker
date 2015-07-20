@@ -10,6 +10,9 @@
     },
     "sinon/sinon.d.ts": {
       "commit": "159b808f9b035ca971d19d93ac675030e87048d8"
+    },
+    "swiper/swiper.d.ts": {
+      "commit": "f7d47e35f7f29c151889286e8b8bf2bd31317490"
     }
   }
 }
