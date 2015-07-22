@@ -3,13 +3,18 @@
 module pokerapp {
   export class Card{
 
-    private static _cardNumber : string[] = ['?','0','1/2','1','2','3','5','8','13','20','40','100','∞'];
+    private static CARD_NUMBER : string[] = ['?','0','1/2','1','2','3','5','8','13','20','40','100','∞'];
+    private static SWIPER_OPTION : SwiperOptions = {
+        loop: true,
+        pagination: '.swiper-pagination',
+      };
 
     private _fontColor : string;
     private _bgColor : string;
+    private _swip : Swiper = null;
 
-    public create(targetContainer : string) {
-        var target : HTMLElement = document.getElementById(targetContainer);
+    public create(targetContainer : string) : Swiper{
+        var target : HTMLElement = this.getDocument().getElementById(targetContainer);
         target.className = targetContainer;
 
         this._bgColor = this.randomColor();
@@ -17,8 +22,13 @@ module pokerapp {
 
         this.createCardsDom(target);
         this.createSwiper('.' + targetContainer);
+        this.getDocument().bgColor = this._bgColor;
 
-        document.bgColor = this._bgColor;
+        return this._swip;
+    }
+
+    private getDocument() : Document {
+      return document;
     }
 
     private randomColor() : string {
@@ -53,11 +63,15 @@ module pokerapp {
       var swiperWrapperElement : HTMLElement = document.createElement('div');
       swiperWrapperElement.className = 'swiper-wrapper';
 
-      for(var num in Card._cardNumber){
-        this.createCardDom(swiperWrapperElement, Card._cardNumber[num]);
+      for(var num in Card.CARD_NUMBER){
+        this.createCardDom(swiperWrapperElement, Card.CARD_NUMBER[num]);
       }
 
+      var paginationElement : HTMLElement = document.createElement('div');
+      paginationElement.className = 'swiper-pagination';
+
       parent.appendChild(swiperWrapperElement);
+      parent.appendChild(paginationElement);
     }
 
     private createCardDom(parent : HTMLElement, cardNumber : string){
@@ -69,8 +83,7 @@ module pokerapp {
     }
 
     private createSwiper(targetContainer : string) {
-      var option : SwiperOptions = {loop: true, pagination: '.swiper-pagination'};
-      var swip : Swiper = new Swiper(targetContainer,option);
+      this._swip = new Swiper(targetContainer,Card.SWIPER_OPTION);
     }
   }
 }
