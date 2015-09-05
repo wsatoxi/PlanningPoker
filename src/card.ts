@@ -4,9 +4,14 @@ module pokerapp {
   export class Card{
 
     private static CARD_NUMBER : string[] = ['?','0','1/2','1','2','3','5','8','13','20','40','100','∞'];
-    private static SWIPER_OPTION : SwiperOptions = <any>{
+    private _option : SwiperOptions = <any>{
         loop: true,
-        pagination: '.swiper-pagination'
+        pagination: '.swiper-pagination',
+        nextButton: '.swiper-button-next',
+        prevButton: '.swiper-button-prev',
+        paginationClickable: true,
+        spaceBetween: 30,
+        onSlideChangeStart : undefined
       };
 
     private _fontColor : string;
@@ -21,7 +26,8 @@ module pokerapp {
         this._fontColor = this.createComplementaryColor(this._bgColor);
 
         this.createCardsDom(target);
-        this.createSwiper('.' + targetContainer);
+        this._option.onSlideChangeStart = this.onSlideChangeStart;
+        this.createSwiper('.' + targetContainer, this._option);
         this.getDocument().bgColor = this._bgColor;
 
         return this._swip;
@@ -78,6 +84,15 @@ module pokerapp {
 
       parent.appendChild(swiperWrapperElement);
       parent.appendChild(paginationElement);
+
+      if(!this.isPhone()){
+        var nextButtonElement : HTMLElement = document.createElement('div');
+        nextButtonElement.className = 'swiper-button-next';
+        var prevButtonElement : HTMLElement = document.createElement('div');
+        prevButtonElement.className = 'swiper-button-prev';
+        parent.appendChild(nextButtonElement);
+        parent.appendChild(prevButtonElement);
+      }
     }
 
     private createCardDom(parent : HTMLElement, cardNumber : string){
@@ -86,6 +101,18 @@ module pokerapp {
         swiperSlide.textContent = cardNumber;
         swiperSlide.style.cssText = 'color : ' + this._fontColor + ';';
         parent.appendChild(swiperSlide);
+    }
+
+    private onSlideChangeStart(swiper : Swiper) {
+    }
+
+    private isPhone() : boolean{
+      var ua : string = navigator.userAgent;
+      if(ua.indexOf('iPhone') > 0 || ua.indexOf('iPod') > 0 || ( ua.indexOf('Android') > 0 && ua.indexOf('Mobile') > 0)){
+        return true;
+      }
+
+      return false;
     }
 
     private createAdDom(parent : HTMLElement){
@@ -119,8 +146,8 @@ module pokerapp {
       return adDom;
     }
 
-    private createSwiper(targetContainer : string) {
-      this._swip = new Swiper(targetContainer,Card.SWIPER_OPTION);
+    private createSwiper(targetContainer : string, option : SwiperOptions) {
+      this._swip = new Swiper(targetContainer,option);
     }
   }
 }

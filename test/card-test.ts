@@ -24,7 +24,7 @@ test('card - createCardsDom test', function(){
 
   (<any>card).createCardsDom(parent);
 
-  equal(parent.childNodes.length,2);
+  equal(parent.childNodes.length,4);
   equal((<HTMLElement>parent.childNodes[0]).className,'swiper-wrapper');
   equal(parent.childNodes[0].childNodes.length,14);
   equal((<HTMLElement>parent.childNodes[1]).className,'swiper-pagination');
