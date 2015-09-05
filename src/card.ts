@@ -4,9 +4,9 @@ module pokerapp {
   export class Card{
 
     private static CARD_NUMBER : string[] = ['?','0','1/2','1','2','3','5','8','13','20','40','100','∞'];
-    private static SWIPER_OPTION : SwiperOptions = {
+    private static SWIPER_OPTION : SwiperOptions = <any>{
         loop: true,
-        pagination: '.swiper-pagination',
+        pagination: '.swiper-pagination'
       };
 
     private _fontColor : string;
@@ -97,16 +97,15 @@ module pokerapp {
       var adDom : HTMLElement = document.createElement('div');
 
       var adscriptSrc : HTMLScriptElement = document.createElement('script');
-      adscriptSrc.src = '//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js';
+      adscriptSrc.src = 'http://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js';
       adscriptSrc.async = true;
       adDom.appendChild(adscriptSrc);
 
       var adProp : HTMLElement = document.createElement('ins');
       adProp.className = 'adsbygoogle';
-      adProp.style.cssText = 'display:block';
+      adProp.style.cssText = 'display:inline-block;width:300px;height:250px';
       adProp['data-ad-client'] = 'ca-pub-8472024369429023';
-      adProp['data-ad-slot'] = '3343626220';
-      adProp['data-ad-format'] = 'auto';
+      adProp['data-ad-slot'] = '2865948228';
 
       adDom.appendChild(adProp);
 
