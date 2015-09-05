@@ -63,7 +63,13 @@ module pokerapp {
       var swiperWrapperElement : HTMLElement = document.createElement('div');
       swiperWrapperElement.className = 'swiper-wrapper';
 
+      var rand : number = Math.floor( Math.random() * Card.CARD_NUMBER.length + 1 ) ;
+
+
       for(var num in Card.CARD_NUMBER){
+        if(num == rand){
+          this.createAdDom(swiperWrapperElement);
+        }
         this.createCardDom(swiperWrapperElement, Card.CARD_NUMBER[num]);
       }
 
@@ -80,6 +86,38 @@ module pokerapp {
         swiperSlide.textContent = cardNumber;
         swiperSlide.style.cssText = 'color : ' + this._fontColor + ';';
         parent.appendChild(swiperSlide);
+    }
+
+    private createAdDom(parent : HTMLElement){
+      parent.appendChild(this.getAd());
+    }
+
+    private getAd() : HTMLElement {
+
+      var adDom : HTMLElement = document.createElement('div');
+
+      var adscriptSrc : HTMLScriptElement = document.createElement('script');
+      adscriptSrc.src = '//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js';
+      adscriptSrc.async = true;
+      adDom.appendChild(adscriptSrc);
+
+      var adProp : HTMLElement = document.createElement('ins');
+      adProp.className = 'adsbygoogle';
+      adProp.style.cssText = 'display:block';
+      adProp['data-ad-client'] = 'ca-pub-8472024369429023';
+      adProp['data-ad-slot'] = '3343626220';
+      adProp['data-ad-format'] = 'auto';
+
+      adDom.appendChild(adProp);
+
+      var adscript : HTMLScriptElement = document.createElement('script');
+      adscript.text = '(adsbygoogle = window.adsbygoogle || []).push({});';
+
+      adDom.appendChild(adscript);
+
+      adDom.className = 'swiper-slide';
+
+      return adDom;
     }
 
     private createSwiper(targetContainer : string) {

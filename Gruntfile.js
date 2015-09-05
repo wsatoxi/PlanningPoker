@@ -23,9 +23,11 @@ module.exports = function(grunt) {
     },
 
     tsqunit : {
-      srcDir : './src/',
-      testDir : './test/',
-      buildReportDir : './output/'
+      all : {
+        srcDir : './src/',
+        testDir : './test/',
+        buildReportDir : './output/'
+      }
     },
 
     coveralls:{
