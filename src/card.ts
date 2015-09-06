@@ -124,7 +124,7 @@ module pokerapp {
       var adDom : HTMLElement = document.createElement('div');
 
       var adscriptSrc : HTMLScriptElement = document.createElement('script');
-      adscriptSrc.src = 'http://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js';
+      adscriptSrc.src = '//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js';
       adscriptSrc.async = true;
       adDom.appendChild(adscriptSrc);
 
