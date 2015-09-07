@@ -131,8 +131,8 @@ module pokerapp {
       var adProp : HTMLElement = document.createElement('ins');
       adProp.className = 'adsbygoogle';
       adProp.style.cssText = 'display:inline-block;width:300px;height:250px';
-      adProp['data-ad-client'] = 'ca-pub-8472024369429023';
-      adProp['data-ad-slot'] = '2865948228';
+      adProp.setAttribute('data-ad-client','ca-pub-8472024369429023');
+      adProp.setAttribute('data-ad-slot','2865948228');
 
       adDom.appendChild(adProp);
 
