@@ -38,9 +38,10 @@ namespace pokerapp {
     }
 
     randomColor() : string {
-      var color : string = Math.floor(Math.random() * 16777251).toString(16);
-      color = '#' + ('000000' + color).slice(-6);
-      return color;
+      // var color : string = Math.floor(Math.random() * 16777251).toString(16);
+      // color = '#' + ('000000' + color).slice(-6);
+      // return color;
+      return '#ff0000';
     }
 
     private createComplementaryColor(baseColor : string) : string{
