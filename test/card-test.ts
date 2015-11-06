@@ -11,11 +11,11 @@ test('card - randomColor test',function(){
   ok(rgbExp.test(color));
 })
 
-test('card - red color test',function(){
+test('card - green color test',function(){
   var card : pokerapp.Card = new pokerapp.Card();
   var color : string = card.randomColor();
 
-  equal(color,'#ff0000');
+  equal(color,'#00ff00');
 })
 
 test('card - createComplementaryColor test', function(){
