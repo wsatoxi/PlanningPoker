@@ -1,12 +1,21 @@
 /// <reference path="../src/card.ts"/>
 /// <reference path="../typings/tsd.d.ts"/>
 
+namespace pokerapp {
+
 test('card - randomColor test',function(){
   var card : pokerapp.Card = new pokerapp.Card();
-  var color : string = (<any>card).randomColor();
+  var color : string = card.randomColor();
 
   var rgbExp = /^#?[0-9a-fA-F]{6}$/;
-  equal(rgbExp.test(color),true);
+  ok(rgbExp.test(color));
+})
+
+test('card - green color test',function(){
+  var card : pokerapp.Card = new pokerapp.Card();
+  var color : string = card.randomColor();
+
+  equal(color,'#00ff00');
 })
 
 test('card - createComplementaryColor test', function(){
@@ -55,3 +64,4 @@ test('card - createSwiper test',function(){
   equal((<any>card)._swip != null,true);
 
 })
+}

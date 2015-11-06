@@ -1,6 +1,6 @@
 /// <reference path="../typings/tsd.d.ts"/>
 
-module pokerapp {
+namespace pokerapp {
   export class Card{
 
     private static CARD_NUMBER : string[] = ['?','0','1/2','1','2','3','5','8','13','20','40','100','∞'];
@@ -37,10 +37,12 @@ module pokerapp {
       return document;
     }
 
-    private randomColor() : string {
-      var color : string = Math.floor(Math.random() * 16777251).toString(16);
-      color = '#' + ('000000' + color).slice(-6);
-      return color;
+    randomColor() : string {
+      // var color : string = Math.floor(Math.random() * 16777251).toString(16);
+      // color = '#' + ('000000' + color).slice(-6);
+      //
+      // return color;
+      return '#00ff00';
     }
 
     private createComplementaryColor(baseColor : string) : string{
