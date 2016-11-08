@@ -6,6 +6,8 @@
 
 ### How to use
 
+http://unksato.github.io/PlanningPoker/
+
 #### Initial setting
 
 * Install Node.js, TypeScript and Grunt
