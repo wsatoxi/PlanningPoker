@@ -35,7 +35,7 @@ module.exports = function(grunt) {
         force: false
       },
       base: {
-        src: 'output/lcov-reports/lcov.ts.txt'
+        src: 'output/lcov-reports/lcov.ts.info'
       }
     }
   });
