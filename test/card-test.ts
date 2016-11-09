@@ -8,11 +8,11 @@ test('card - randomColor test',function(){
   var color : string = card.randomColor();
 
   var rgbExp = /^#?[0-9a-fA-F]{6}$/;
-  ok(rgbExp.test(color));
+  ok(rgbExp.test(color),'check the color code format');
 
   var secondColor : string = card.randomColor();
-  ok(rgbExp.test(secondColor));
-  notEqual(color,secondColor);
+  ok(rgbExp.test(secondColor),'check the color code format');
+  notEqual(color,secondColor,'check that always different colors return');
 })
 
 test('card - createComplementaryColor test', function(){
