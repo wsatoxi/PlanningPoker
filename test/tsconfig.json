@@ -16,5 +16,8 @@
     ],
     "files": [
         "./card-test.ts"
-    ]
+    ],
+    "atom": {
+        "rewriteTsconfig": true
+    }
 }

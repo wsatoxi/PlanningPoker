@@ -9,6 +9,10 @@ test('card - randomColor test',function(){
 
   var rgbExp = /^#?[0-9a-fA-F]{6}$/;
   ok(rgbExp.test(color));
+
+  var secondColor : string = card.randomColor();
+  ok(rgbExp.test(secondColor));
+  notEqual(color,secondColor);
 })
 
 test('card - createComplementaryColor test', function(){
