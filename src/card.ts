@@ -22,7 +22,7 @@ namespace pokerapp {
         var target : HTMLElement = this.getDocument().getElementById(targetContainer);
         target.className = targetContainer;
 
-        this._bgColor = this.randomColor();
+        this._bgColor = this.getColorParameter() || this.randomColor();
         this._fontColor = this.createComplementaryColor(this._bgColor);
 
         this.createCardsDom(target);
@@ -31,6 +31,30 @@ namespace pokerapp {
         this.getDocument().bgColor = this._bgColor;
 
         return this._swip;
+    }
+
+    private getColorParameter() : string {
+      var color = this.getSearchParameters().color;
+      if(color){
+        if(/^[0-9a-fA-F]{6}$/.test(color)){
+          return `#${color}`;
+        }
+      }
+      return null;
+    }
+
+    private getSearchParameters() : any {
+      var params = {};
+      var pair=this.getWindow().location.search.substring(1).split('&');
+      for(var i=0;pair[i];i++) {
+        var kv = pair[i].split('=');
+        params[kv[0]]=kv[1];
+      }
+      return params;
+    }
+
+    private getWindow(): Window {
+      return window;
     }
 
     private getDocument() : Document {
