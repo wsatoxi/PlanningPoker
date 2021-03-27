@@ -6,7 +6,7 @@
 
 ### How to use
 
-https://unksato.github.io/PlanningPoker/
+https://wsatoxi.github.io/PlanningPoker/
 
 #### Initial setting
 
